@@ -124,6 +124,9 @@ export default function Layout({ title, description, children }) {
       router.push(redirect);
     }
   };
+  const closeHandler = () => {
+    setAnchorEl(null);
+  };
   const logoutClickHandler = () => {
     setAnchorEl(null);
     dispatch({ type: 'USER_LOGOUT' });
@@ -255,7 +258,7 @@ export default function Layout({ title, description, children }) {
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
-                    onClose={loginMenuCloseHandler}
+                    onClose={closeHandler}
                   >
                     <MenuItem
                       onClick={(e) => loginMenuCloseHandler(e, '/profile')}
